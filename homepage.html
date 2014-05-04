@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+  <head>
+    <title>Richard Lancaster</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta name="description" content="Home page of Ricahard Lancaster" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="js/jquery.terminal-0.8.7.js" type="text/javascript"></script>
+    <script src="js/jquery.mousewheel-min.js" type="text/javascript"></script>
+    <link href="css/jquery.terminal.css" rel="stylesheet" type="text/css"></script>
+    <link href="css/homepage.css" rel="stylesheet" type="text/css"></script>
+  </head> 
+  <body>  
+    <div id="terminal"> </div>
+
+    <script>
+      var greeting_title = "[[b;#00EE00;]Richard Lancaster\n" + 
+        "Commputer Science student/Software Engineer/Tinkerer]\n\n" 
+
+      var greeting_string = greeting_title + "Commands:\n" + 
+        "[[b;#00EE00;]whoami]   - info about myself\n" + 
+        "[[b;#00EE00;]github]   - goto my github\n" + 
+        "[[b;#00EE00;]twitter]  - goto my twitter\n" + 
+        "[[b;#00EE00;]linkedin] - goto my linkedIn\n" + 
+        "[[b;#00EE00;]facebook] - goto my facebook\n" + 
+        "[[b;#00EE00;]help]     - full list of commands"
+
+      var whoami = greeting_title
+
+      var help = ""
+
+      var commands = {
+        whoami: function() {
+          //this.echo(whoami);
+          this.echo("Not implemented yet.");
+        },
+        github: function() {
+          window.open("https://github.com/richlanc");
+        },
+        twitter: function() {
+          window.open("https://twitter.com/RichLancaster");
+        },
+        linkedin: function() {
+          window.open("https://www.linkedin.com/pub/richard-lancaster/31/46/a12");
+        },
+        facebook: function() {
+          window.open("https://www.facebook.com/lancasterrich");
+        },
+        help: function() {
+          //this.echo(help);
+          this.echo("Not implemented yet.")
+        },
+        man: function(text) {
+          this.echo("No manual entry for " + text.split("man "));
+        }
+      }
+
+      jQuery(function($, undefined) {
+        $('#terminal').terminal(commands, {  
+            greetings: greeting_string,
+            name: 'terminal',
+            prompt: 'guest@localhost:~$  '
+          });
+      });
+    </script>
+  </body>
+</html>

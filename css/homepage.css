@@ -1,0 +1,10 @@
+.terminal{
+	width: 750px ;
+	height: 600px;
+	margin: auto;
+	margin-top: 25px
+}
+
+body {
+	background-color: #000000;
+}
