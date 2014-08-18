@@ -5,6 +5,10 @@
 	margin-top: 25px
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
 	background-color: #000000;
 }
