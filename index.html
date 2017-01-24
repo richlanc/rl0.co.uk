@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <title>Richard Lancaster</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -11,20 +11,20 @@
     <script src="js/jquery.mousewheel-min.js" type="text/javascript"></script>
     <link href="css/jquery.terminal.css" rel="stylesheet" type="text/css"></script>
     <link href="css/homepage.css" rel="stylesheet" type="text/css"></script>
-  </head> 
-  <body>  
+  </head>
+  <body>
     <div id="terminal"> </div>
 
     <script>
-      var greeting_title = "[[b;#00EE00;]Richard Lancaster\n" + 
-        "Computer Science student/Software Engineer/Tinkerer]\n\n" 
+      var greeting_title = "[[b;#00EE00;]Richard Lancaster\n" +
+        "Computer Science student/Software Engineer/Tinkerer]\n\n"
 
-      var greeting_string = greeting_title + "Commands:\n" + 
-        "[[b;#00EE00;]whoami]   - info about myself\n" + 
-        "[[b;#00EE00;]github]   - goto my github\n" + 
-        "[[b;#00EE00;]twitter]  - goto my twitter\n" + 
-        "[[b;#00EE00;]linkedin] - goto my linkedIn\n" + 
-        "[[b;#00EE00;]facebook] - goto my facebook\n" + 
+      var greeting_string = greeting_title + "Commands:\n" +
+        "[[b;#00EE00;]whoami]   - info about myself\n" +
+        "[[b;#00EE00;]github]   - goto my github\n" +
+        "[[b;#00EE00;]twitter]  - goto my twitter\n" +
+        "[[b;#00EE00;]linkedin] - goto my linkedIn\n" +
+        "[[b;#00EE00;]facebook] - goto my facebook\n" +
         "[[b;#00EE00;]help]     - full list of commands"
 
       var whoami = greeting_title
@@ -59,7 +59,7 @@
       }
 
       jQuery(function($, undefined) {
-        $('#terminal').terminal("command", {  
+        $('#terminal').terminal("command", {
             greetings: greeting_string,
             name: 'terminal',
             prompt: 'guest@rl0.co.uk:~$  '
