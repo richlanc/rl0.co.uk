@@ -12,54 +12,51 @@
     <link href="css/jquery.terminal.css" rel="stylesheet" type="text/css"></script>
     <link href="css/homepage.css" rel="stylesheet" type="text/css"></script>
   </head>
+
   <body>
     <div id="terminal"> </div>
 
     <script>
       var greeting_title = "[[b;#00EE00;]Richard Lancaster\n" +
-        "Computer Science student/Software Engineer/Tinkerer]\n\n"
+        "Software Engineer/Computer Science Graduate/Tinkerer]\n\n"
 
       var greeting_string = greeting_title + "Commands:\n" +
-        "[[b;#00EE00;]whoami]   - info about myself\n" +
+        "[[b;#00EE00;]cv]       - goto my cv\n" +
         "[[b;#00EE00;]github]   - goto my github\n" +
-        "[[b;#00EE00;]twitter]  - goto my twitter\n" +
         "[[b;#00EE00;]linkedin] - goto my linkedIn\n" +
-        "[[b;#00EE00;]facebook] - goto my facebook\n" +
-        "[[b;#00EE00;]help]     - full list of commands"
+        "[[b;#00EE00;]facebook] - goto my facebook\n"
 
       var whoami = greeting_title
 
-      var help = ""
-
       var commands = {
         whoami: function() {
-          //this.echo(whoami);
-          this.echo("Not implemented yet.");
+            window.open("cv.pdf");
+        },
+        cv: function() {
+            window.open("cv.pdf");
         },
         github: function() {
-          window.open("https://github.com/richlanc");
+            window.open("https://github.com/richlanc");
         },
         twitter: function() {
-          window.open("https://twitter.com/RichLancaster");
+            window.open("https://twitter.com/RichLancaster");
         },
         linkedin: function() {
-          window.open("https://www.linkedin.com/pub/richard-lancaster/31/46/a12");
+            window.open("https://www.linkedin.com/pub/richard-lancaster/31/46/a12");
         },
         facebook: function() {
-          window.open("https://www.facebook.com/lancasterrich");
+            window.open("https://www.facebook.com/lancasterrich");
         },
         help: function() {
-          //this.echo(help);
-          this.echo("Not implemented yet.")
+            this.echo("Not implemented yet.")
         },
         man: function(text) {
-          this.echo("No manual entry for " + text.split("man "));
+            this.echo("No manual entry for " + text.split("man "));
         },
-        rpc: "rpc"
       }
 
       jQuery(function($, undefined) {
-        $('#terminal').terminal("command", {
+        $('#terminal').terminal(commands, {
             greetings: greeting_string,
             name: 'terminal',
             prompt: 'guest@rl0.co.uk:~$  '
