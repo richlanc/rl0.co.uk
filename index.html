@@ -17,42 +17,32 @@
     <div id="terminal"> </div>
 
     <script>
-      var greeting_title = "[[b;#00EE00;]Richard Lancaster\n" +
-        "Software Engineer/Computer Science Graduate/Tinkerer]\n\n"
+      var greeting_string = "[[b;#00EE00;]Richard Lancaster\n" +
+        "Software Engineer/Computer Science Graduate/Tinkerer]\n\n" +
+        "Commands:\n"
 
-      var greeting_string = greeting_title + "Commands:\n" +
-        "[[b;#00EE00;]cv]       - goto my cv\n" +
-        "[[b;#00EE00;]github]   - goto my github\n" +
-        "[[b;#00EE00;]linkedin] - goto my linkedIn\n" +
-        "[[b;#00EE00;]facebook] - goto my facebook"
+      var entries = [
+        {"command": "whoami", "type": "link", "url": "cv.pdf", "display": false},
+        {"command": "cv", "type": "link", "url": "cv.pdf", "display": true},
+        {"command": "github", "type": "link", "url": "https://github.com/richlanc", "display": true},
+        {"command": "linkedin", "type": "link", "url": "https://uk.linkedin.com/in/richlanc", "display": true},
+        {"command": "linkedIn", "type": "link", "url": "https://uk.linkedin.com/in/richlanc", "display": false},
+      ]
+      var commands = {};
 
-      var whoami = greeting_title
+      var name_length = 10;
+      for (var i = 0; i < entries.length; i++) {
+          var obj = entries[i];
 
-      var commands = {
-        whoami: function() {
-            window.open("cv.pdf");
-        },
-        cv: function() {
-            window.open("cv.pdf");
-        },
-        github: function() {
-            window.open("https://github.com/richlanc");
-        },
-        twitter: function() {
-            window.open("https://twitter.com/RichLancaster");
-        },
-        linkedin: function() {
-            window.open("https://www.linkedin.com/pub/richard-lancaster/31/46/a12");
-        },
-        facebook: function() {
-            window.open("https://www.facebook.com/lancasterrich");
-        },
-        help: function() {
-            this.echo("Not implemented yet.")
-        },
-        man: function(text) {
-            this.echo("No manual entry for " + text.split("man "));
-        },
+          if (obj.display) {
+              var len_diff = name_length - obj.command.length;
+              var name = obj.command + (len_diff > 0 ? " ".repeat(len_diff) : "");
+              greeting_string += "[[b;#00EE00;]" + name + "]       - goto my " + obj.command + "\n"
+          }
+
+          commands[obj.command] = function() {
+            window.open(obj.url);
+          }
       }
 
       jQuery(function($, undefined) {
